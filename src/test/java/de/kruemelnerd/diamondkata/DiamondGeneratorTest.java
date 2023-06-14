@@ -30,14 +30,19 @@ public class DiamondGeneratorTest {
         assertThat(diamondMap[1][0], is('B'));
         assertThat(diamondMap[1][1], is(' '));
         assertThat(diamondMap[1][2], is('B'));
+
+        assertThat(diamondMap[2][0], is(' '));
+        assertThat(diamondMap[2][1], is('A'));
+        assertThat(diamondMap[2][2], is(' '));
+
     }
 
-    // 01234 = 2*Position-1
-    // __A__ 5-3 = 2
-    // _B_B_ 5-4 = 1
-    // C___C 5-5 = 0
-    // _B_B_ 5-4 = 1
-    // __A__ 5-3 = 0
+    //   01234 = 2*Position-1 = 2*3-1 = 5
+    // 0 __A__ 5-3 = 2    | A = 0 = 5 - 2 - 3 = Breite - postitionLetter - höhe / 2 +1
+    // 1 _B_B_ 5-4 = 1    | B = 1 = 5 - 1 - 3
+    // 2 C___C 5-5 = 0    | C = 2 = 5 - 0 - 3
+    // 3 _B_B_ 5-6 = -1   | B = 1 = 5 - 1 - 3
+    // 4 __A__ 5-7 = -2   | A = 0 = 5 - 2 - 3
     //
 
     @Test
@@ -62,13 +67,26 @@ public class DiamondGeneratorTest {
         assertThat(diamondMap[2][2], is(' '));
         assertThat(diamondMap[2][3], is(' '));
         assertThat(diamondMap[2][4], is('C'));
+
+        assertThat(diamondMap[3][0], is(' '));
+        assertThat(diamondMap[3][1], is('B'));
+        assertThat(diamondMap[3][2], is(' '));
+        assertThat(diamondMap[3][3], is('B'));
+        assertThat(diamondMap[3][4], is(' '));
+
+        assertThat(diamondMap[4][0], is(' '));
+        assertThat(diamondMap[4][1], is(' '));
+        assertThat(diamondMap[4][2], is('A'));
+        assertThat(diamondMap[4][3], is(' '));
+        assertThat(diamondMap[4][4], is(' '));
     }
 
+    // Höhe: 4
     //   0123456 = 2*Position-1 = 7
-    // 0 ___A___ 7-4 = 3 = Breite - Höhe  + 0
-    // 1 __B_B__ 7-5 = 2 = Breite - Höhe  + 1
-    // 2 _C___C_ 7-6 = 1 = Breite - Höhe  + 2
-    // 3 D_____D 7-7 = 0 = Breite - Höhe  + 3
+    // 0 ___A___ 7-4 = 3 = Breite - (Höhe / 2) + 1)  + 0
+    // 1 __B_B__ 7-5 = 2 = Breite - (Höhe / 2) + 1)  + 1
+    // 2 _C___C_ 7-6 = 1 = Breite - (Höhe / 2) + 1)  + 2
+    // 3 D_____D 7-7 = 0 = Breite - (Höhe / 2) + 1)  + 3
 
     // 4 _C___C_
     // 5 __B_B__

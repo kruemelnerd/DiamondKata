@@ -7,9 +7,13 @@ public class DiamondGenerator {
     final public char BLANK = ' ';
 
     public char[][] generateDiamond(char goalLetter) {
+        if (goalLetter == 'A') {
+            return getSimpleMapForA();
+        }
+
         int positionGoalLetter = alphabet.indexOf(goalLetter) + 1;
-        int widthDiamondMap = positionGoalLetter * 2 - 1;
-        int heightDiamondMap = positionGoalLetter;
+        int heightDiamondMap, widthDiamondMap;
+        widthDiamondMap = heightDiamondMap = positionGoalLetter * 2 - 1;
 
         char[][] diamondMap = new char[heightDiamondMap][widthDiamondMap];
 
@@ -18,27 +22,27 @@ public class DiamondGenerator {
 
 
         for (int height = 0; height < heightDiamondMap; height++) {
-            char letterFromHeight = alphabet.charAt(height);
-            int positionOfLetter = widthDiamondMap - (heightDiamondMap + height);
-            if(heightDiamondMap == 1){
-                positionOfLetter = 0;
+            int positionOfLetter = widthDiamondMap - (((heightDiamondMap / 2) +1) + height);
+            char letterFromHeight;
+            if(positionOfLetter <0){
+                positionOfLetter = positionOfLetter * -1;
+                //letterFromHeight = alphabet.charAt(height - (positionOfLetter +1));
             }
+            int indexLetterInAlphabet = (widthDiamondMap) - positionOfLetter - ((heightDiamondMap / 2) +1);
+            letterFromHeight = alphabet.charAt(indexLetterInAlphabet);
+            //positionOfLetter = positionOfLetter < 0 ? positionOfLetter * -1 : positionOfLetter;
+
+
             diamondMap[height][positionOfLetter] = letterFromHeight;
             diamondMap[height][(widthDiamondMap - 1) - positionOfLetter] = letterFromHeight;
-            // Breite: 3
-            // Höhe: 1
-            // Länge: 2
-            // gewünschte Position: 2
-            // =3 / 2 = 1,5
-            // = 5 / 2 = 2,5
-
-
-            //for (int width = 0; width < widthDiamondMap; width++) {
-            //    diamondMap[height][width] = letterFromHeight;
-            //}
         }
 
-        //diamondMap[heightDiamondMap - 1][widthDiamondMap - 1] = goalLetter;
+        return diamondMap;
+    }
+
+    private static char[][] getSimpleMapForA() {
+        char[][] diamondMap = new char[1][1];
+        diamondMap[0][0] = 'A';
         return diamondMap;
     }
 
