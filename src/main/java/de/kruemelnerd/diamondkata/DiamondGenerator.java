@@ -3,7 +3,7 @@ package de.kruemelnerd.diamondkata;
 public class DiamondGenerator {
 
     //String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    String alphabet = "AB";
+    String alphabet = "ABCD";
     final public char BLANK = ' ';
 
     public char[][] generateDiamond(char goalLetter) {
