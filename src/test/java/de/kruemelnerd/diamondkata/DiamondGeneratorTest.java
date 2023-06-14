@@ -131,6 +131,30 @@ public class DiamondGeneratorTest {
         assertThat(diamondMap[3][5], is(' '));
         assertThat(diamondMap[3][6], is('D'));
 
+        assertThat(diamondMap[4][0], is(' '));
+        assertThat(diamondMap[4][1], is('C'));
+        assertThat(diamondMap[4][2], is(' '));
+        assertThat(diamondMap[4][3], is(' '));
+        assertThat(diamondMap[4][4], is(' '));
+        assertThat(diamondMap[4][5], is('C'));
+        assertThat(diamondMap[4][6], is(' '));
+
+        assertThat(diamondMap[5][0], is(' '));
+        assertThat(diamondMap[5][1], is(' '));
+        assertThat(diamondMap[5][2], is('B'));
+        assertThat(diamondMap[5][3], is(' '));
+        assertThat(diamondMap[5][4], is('B'));
+        assertThat(diamondMap[5][5], is(' '));
+        assertThat(diamondMap[5][6], is(' '));
+
+        assertThat(diamondMap[6][0], is(' '));
+        assertThat(diamondMap[6][1], is(' '));
+        assertThat(diamondMap[6][2], is(' '));
+        assertThat(diamondMap[6][3], is('A'));
+        assertThat(diamondMap[6][4], is(' '));
+        assertThat(diamondMap[6][5], is(' '));
+        assertThat(diamondMap[6][6], is(' '));
+
     }
 
 
