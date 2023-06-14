@@ -2,8 +2,8 @@ package de.kruemelnerd.diamondkata;
 
 public class DiamondGenerator {
 
-    //String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    String alphabet = "ABCD";
+    String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //String alphabet = "ABCD";
     final public char BLANK = ' ';
 
     public char[][] generateDiamond(char goalLetter) {
@@ -22,15 +22,12 @@ public class DiamondGenerator {
 
 
         for (int height = 0; height < heightDiamondMap; height++) {
-            int positionOfLetter = widthDiamondMap - (((heightDiamondMap / 2) +1) + height);
-            char letterFromHeight;
-            if(positionOfLetter <0){
-                positionOfLetter = positionOfLetter * -1;
-                //letterFromHeight = alphabet.charAt(height - (positionOfLetter +1));
-            }
-            int indexLetterInAlphabet = (widthDiamondMap) - positionOfLetter - ((heightDiamondMap / 2) +1);
-            letterFromHeight = alphabet.charAt(indexLetterInAlphabet);
-            //positionOfLetter = positionOfLetter < 0 ? positionOfLetter * -1 : positionOfLetter;
+            int halfTheHeightDiamondMap = (heightDiamondMap / 2) +1;
+            int positionOfLetter = widthDiamondMap - ( halfTheHeightDiamondMap+ height);
+            positionOfLetter = positionOfLetter < 0 ? positionOfLetter * -1 : positionOfLetter;
+
+            int indexLetterInAlphabet = (widthDiamondMap) - positionOfLetter - halfTheHeightDiamondMap;
+            char letterFromHeight = alphabet.charAt(indexLetterInAlphabet);
 
 
             diamondMap[height][positionOfLetter] = letterFromHeight;
@@ -54,7 +51,3 @@ public class DiamondGenerator {
         }
     }
 }
-
-
-// Jede Linie
-// 1 Linie
